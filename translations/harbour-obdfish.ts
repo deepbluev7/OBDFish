@@ -298,10 +298,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>OBD adapters (press to connect):</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Found adapters (press to connect):</source>
         <translation type="unfinished"></translation>
     </message>

@@ -20,8 +20,7 @@ QMAKE_LFLAGS += -std=c++0x
 DEFINES += APP_VERSION=\"\\\"$${VERSION}\\\"\"
 
 SOURCES += src/harbour-obdfish.cpp \
-    src/bluetoothconnection.cpp \
-    src/bluetoothdata.cpp \
+    src/serialportprofile.cpp \
     src/filewriter.cpp \
     src/projectsettings.cpp \
     src/plotwidget.cpp
@@ -47,13 +46,12 @@ CONFIG += sailfishapp_i18n
 TRANSLATIONS += translations/harbour-obdfish-de.ts
 
 HEADERS += \
-    src/bluetoothconnection.h \
-    src/bluetoothdata.h \
+    src/serialportprofile.h \
     src/filewriter.h \
     src/projectsettings.h \
     src/plotwidget.h
 
-QT += bluetooth
+QT += dbus
 
 DISTFILES += \
     rpm/harbour-obdfish.spec \
@@ -80,3 +78,5 @@ DISTFILES += \
     qml/obd_ok.png \
     qml/obd_error.png \
     rpm/harbour-obdfish.changes
+
+unix: PKGCONFIG += KF5BluezQt

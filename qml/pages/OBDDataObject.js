@@ -490,7 +490,7 @@ function fncConvertFuelType(data)
 
     data = parseInt(data,16);
 
-    //console.log("Fueltype: " + data);
+    console.log("Fueltype: " + data);
 
     if (data >= 0 && data <= 23)
        return FuelTypes[data];
