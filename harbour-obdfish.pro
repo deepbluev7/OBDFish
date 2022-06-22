@@ -64,7 +64,6 @@ DISTFILES += \
     qml/pages/AboutPage.qml \
     qml/obdfish.png \
     qml/pages/SettingsPage.qml \
-    qml/pages/SettingsDataObject.js \
     qml/icon-lock-error.png \
     qml/icon-lock-info.png \
     qml/icon-lock-ok.png \

@@ -43,6 +43,9 @@ Page
             var sGetPIDsPage1 = id_ProjectSettings.sLoadProjectData("PIDsPage1");
             var sGetPIDsPage2 = id_ProjectSettings.sLoadProjectData("PIDsPage2");
             var sGetPIDsPage3 = id_ProjectSettings.sLoadProjectData("PIDsPage3");
+            pagesDisplayStyle[0] = id_ProjectSettings.sLoadProjectData("PIDsPageStyle1");
+            pagesDisplayStyle[1] = id_ProjectSettings.sLoadProjectData("PIDsPageStyle2");
+            pagesDisplayStyle[2] = id_ProjectSettings.sLoadProjectData("PIDsPageStyle3");
             var sGetUsedAdaptersNames = id_ProjectSettings.sLoadProjectData("UsedAdaptersNames");
             var sGetUsedAdaptersAddresses = id_ProjectSettings.sLoadProjectData("UsedAdaptersAddresses");
             var sGetSaveDataToDebugFile = id_ProjectSettings.sLoadProjectData("WriteDebugFile");            
@@ -376,7 +379,7 @@ Page
                             repeat: true
                             running: (iInit > 0)
                             interval: 250
-                            onTriggered: id_GlassItem_Yellow.id_GlassItem_Reddimmed = !id_GlassItem_Yellow.dimmed
+                            onTriggered: id_GlassItem_Yellow.id_GlassItem_Red.dimmed = !id_GlassItem_Yellow.dimmed
                         }
                     }
                 }

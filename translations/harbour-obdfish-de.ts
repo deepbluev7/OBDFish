@@ -35,16 +35,20 @@
         <translation type="unfinished">Einstellungen</translation>
     </message>
     <message>
+        <source>Dynamic Values %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The more parameters are requested, the higher the cycle time.&lt;br&gt;To get a more responsive cycle time, go to settings and reduce amount of parameters for this page.</source>
-        <translation type="unfinished">Je mehr Parameter auf einer Seite geladen werden, desto höher ist die Zykluszeit.&lt;br&gt;Um eine kürzere Zykluszeit zu erreichen, kann die Anhzahl der Parameter in den Einstellungen reduziert werden.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cycle time: </source>
-        <translation type="unfinished">Zykluszeit: </translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Dynamic Values %1</source>
-        <translation type="unfinished"></translation>
+        <source>Empty</source>
+        <translation type="unfinished">Leer</translation>
     </message>
 </context>
 <context>
@@ -520,6 +524,26 @@
     <message>
         <source>Dynamic Parameters Page: </source>
         <translation>Dynamische Werte Seite: </translation>
+    </message>
+    <message>
+        <source>Parameter %1:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Parameter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display Style:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Small with label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only value but very big</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

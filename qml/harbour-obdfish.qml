@@ -33,7 +33,8 @@ ApplicationWindow
     property string sReceiveBuffer: "";
     property string sELMVersion: "";
     property bool bSaveDataToDebugFile: false;
-    property variant arPIDsPagesArray : [ "010d,0000,0000,0000,0000,0000", "0104,0105,010c,010d,010e,0111", "0104,0105,010c,010d,010e,0111" ]
+    property var arPIDsPagesArray : [ "010d,0000,0000,0000,0000,0000", "0104,0105,010c,010d,010e,0111", "0104,0105,010c,010d,010e,0111" ]
+    property var pagesDisplayStyle: ["small", "small", "big"]
     property bool bDoNotShowDTCWarning : false;
     property string sCoverValue1 : "";
     property string sCoverValue2 : "";

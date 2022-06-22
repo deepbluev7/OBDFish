@@ -12,7 +12,7 @@
 #include <QTimer>
 
 SerialPortProfile::SerialPortProfile(QObject *parent)
-  : BluezQt::Profile(parent)
+    : BluezQt::Profile(parent)
 {
     setName(QStringLiteral("Serial Port"));
     setChannel(22);
@@ -48,7 +48,7 @@ SerialPortProfile::newConnection(BluezQt::DevicePtr device,
 
     connect(m_socket.data(), &QLocalSocket::readyRead, this, &SerialPortProfile::socketReadyRead);
     connect(
-      m_socket.data(), &QLocalSocket::disconnected, this, &SerialPortProfile::socketDisconnected);
+                m_socket.data(), &QLocalSocket::disconnected, this, &SerialPortProfile::socketDisconnected);
     connect(m_socket.data(), static_cast<void(QLocalSocket::*)(QLocalSocket::LocalSocketError)>(&QLocalSocket::error), this, &SerialPortProfile::errorSocket);
 
 
@@ -78,22 +78,22 @@ SerialPortProfile::release()
 
 void SerialPortProfile::socketReadyRead()
 {
-        qDebug("Entering readData...");
+    qDebug("Entering readData...");
 
-        QByteArray data = m_socket->readAll();
+    QByteArray data = m_socket->readAll();
 
-        qDebug() << "Data size:" << data.size();
-        qDebug() << "Data[" << m_socket->socketDescriptor() << "]:" << data.toHex();
+    qDebug() << "Data size:" << data.size()
+     << "\nData[" << m_socket->socketDescriptor() << "]:" << data.toHex()
 
-        qDebug() << "Text: " << data;
+     << "\nText: " << data;
 
-        emit this->dataReady(data);
+    emit this->dataReady(data);
 }
 
 void SerialPortProfile::socketDisconnected()
 {
-            m_socket.clear();
-            emit disconnected();
+    m_socket.clear();
+    emit disconnected();
 }
 
 void SerialPortProfile::errorSocket(QLocalSocket::LocalSocketError errorCode)

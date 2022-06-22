@@ -35,6 +35,10 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Dynamic Values %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>The more parameters are requested, the higher the cycle time.&lt;br&gt;To get a more responsive cycle time, go to settings and reduce amount of parameters for this page.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -43,7 +47,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Dynamic Values %1</source>
+        <source>Empty</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -519,6 +523,26 @@
     </message>
     <message>
         <source>Dynamic Parameters Page: </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Parameter %1:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Parameter</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Display Style:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Small with label</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only value but very big</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -17,6 +17,7 @@
 
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import Nemo.KeepAlive 1.2
 import harbour.obdfish 1.0
 import "OBDDataObject.js" as OBDDataObject
 
@@ -27,13 +28,7 @@ Page
     property int pageIndex: 0
     property bool bInitPage: true
     property int iWaitForCommand: 0
-    property int iCommandSequence: 1
-    property string sParameter1: "Not supported"
-    property string sParameter2: "Not supported"
-    property string sParameter3: "Not supported"
-    property string sParameter4: "Not supported"
-    property string sParameter5: "Not supported"
-    property string sParameter6: "Not supported"
+    property int iCommandSequence: 0
     property variant arPIDPageArray : []
     property string sCycleTime : "0"
     property double iStartTime : 0
@@ -50,7 +45,7 @@ Page
         {
             bInitPage = true;
 
-            iCommandSequence = 1;
+            iCommandSequence = 0;
             sCycleTime = 0;
             iStartTime = 0;
             iNowTime = 0;
@@ -66,9 +61,19 @@ Page
             arPIDPageArray = arPIDPageArrayTemp;
 
             id_PlotWidget.reset();
+            parameters.clear();
 
             bInitPage = false;
         }
+    }
+
+    DisplayBlanking {
+        id: display
+        preventBlanking: id_page_dyn.status === PageStatus.Active
+    }
+
+    ListModel {
+        id: parameters
     }
 
     Timer
@@ -76,7 +81,7 @@ Page
         //This timer is called cyclically to query ELM
         id: timQueryELMParameters
         interval: 55
-        running: ((status === PageStatus.Active) && !bInitPage)
+        running: ((status === PageStatus.Active) && !bInitPage && display.status !== DisplayBlanking.Off)
         repeat: true
         onTriggered:
         {
@@ -87,110 +92,72 @@ Page
 
                 //console.log("timQueryELMParameters step: " + iCommandSequence.toString());
 
-                //Send first command: query engine temperature
-                switch (iCommandSequence)
+                if (iCommandSequence == 0)
                 {
-                    case 1:
-                        //If a start time was saved before, calculate cycle time.
-                        if (iStartTime !== 0)
-                        {
-                            iNowTime = new Date().getTime();
+                    //If a start time was saved before, calculate cycle time.
+                    if (iStartTime !== 0)
+                    {
+                        iNowTime = new Date().getTime();
 
-                            sCycleTime = (iNowTime - iStartTime).toString();
-                        }
+                        sCycleTime = (iNowTime - iStartTime).toString();
+                    }
 
-                        //Save current time in order to calculate the cycle time.
-                        iStartTime = new Date().getTime();
-
-                        if (arPIDPageArray.length > 0 && fncStartCommand(arPIDPageArray[0] + "1"))
-                            iCommandSequence++;
-                        else
-                        {
-                            sCoverValue1 = "";
-                            iCommandSequence = iCommandSequence + 2;
-                        }
-                        break;
-                    case 2:                                                
-                        var sValue = OBDDataObject.fncEvaluatePIDQuery(sReceiveBuffer, arPIDPageArray[0].toUpperCase());
-                        sCoverValue1 = sValue + OBDDataObject.arrayLookupPID[arPIDPageArray[0]].unittext;
-                        sParameter1 = OBDDataObject.arrayLookupPID[arPIDPageArray[0]].labeltext + ": " + sCoverValue1;
-
-                        if (arPIDPageArray.length == 1)
-                        {
-                            id_PlotWidget.addValue(sValue);
-                            id_PlotWidget.update();
-                        }
-
-                        iCommandSequence++;
-                        break;
-                    case 3:
-                        if (arPIDPageArray.length > 1 && fncStartCommand(arPIDPageArray[1] + "1"))
-                            iCommandSequence++;
-                        else
-                        {
-                            sCoverValue2 = "";
-                            iCommandSequence = iCommandSequence + 2;
-                        }
-                        break;
-                    case 4:
-                        sCoverValue2 = OBDDataObject.fncEvaluatePIDQuery(sReceiveBuffer, arPIDPageArray[1].toUpperCase()) +
-                                       OBDDataObject.arrayLookupPID[arPIDPageArray[1]].unittext;
-                        sParameter2 = OBDDataObject.arrayLookupPID[arPIDPageArray[1]].labeltext + ": " + sCoverValue2;
-                        iCommandSequence++;
-                        break;
-                    case 5:
-                        if (arPIDPageArray.length > 2 && fncStartCommand(arPIDPageArray[2] + "1"))
-                            iCommandSequence++;
-                        else
-                        {
-                            sCoverValue3 = "";
-                            iCommandSequence = iCommandSequence + 2;
-                        }
-                        break;
-                    case 6:
-                        sCoverValue3 = OBDDataObject.fncEvaluatePIDQuery(sReceiveBuffer, arPIDPageArray[2].toUpperCase()) +
-                                       OBDDataObject.arrayLookupPID[arPIDPageArray[2]].unittext;
-                        sParameter3 = OBDDataObject.arrayLookupPID[arPIDPageArray[2]].labeltext + ": " + sCoverValue3;
-                        iCommandSequence++;
-                        break;
-                    case 7:
-                        if (arPIDPageArray.length > 3 && fncStartCommand(arPIDPageArray[3] + "1"))
-                            iCommandSequence++;
-                        else
-                            iCommandSequence = iCommandSequence + 2;
-                        break;
-                    case 8:
-                        sParameter4 = OBDDataObject.arrayLookupPID[arPIDPageArray[3]].labeltext + ": " +
-                                OBDDataObject.fncEvaluatePIDQuery(sReceiveBuffer, arPIDPageArray[3].toUpperCase()) +
-                                OBDDataObject.arrayLookupPID[arPIDPageArray[3]].unittext;
-                        iCommandSequence++;
-                        break;
-                    case 9:
-                        if (arPIDPageArray.length > 4 && fncStartCommand(arPIDPageArray[4] + "1"))
-                            iCommandSequence++;
-                        else
-                            iCommandSequence = iCommandSequence + 2;
-                        break;
-                    case 10:
-                        sParameter5 = OBDDataObject.arrayLookupPID[arPIDPageArray[4]].labeltext + ": " +
-                                OBDDataObject.fncEvaluatePIDQuery(sReceiveBuffer, arPIDPageArray[4].toUpperCase()) +
-                                OBDDataObject.arrayLookupPID[arPIDPageArray[4]].unittext;
-                        iCommandSequence++;
-                        break;
-                    case 11:
-                        if (arPIDPageArray.length > 5 && fncStartCommand(arPIDPageArray[5] + "1"))
-                            iCommandSequence++;
-                        else
-                            iCommandSequence = 1;
-                        break;
-                    case 12:
-                        sParameter6 = OBDDataObject.arrayLookupPID[arPIDPageArray[5]].labeltext + ": " +
-                                OBDDataObject.fncEvaluatePIDQuery(sReceiveBuffer, arPIDPageArray[5].toUpperCase()) +
-                                OBDDataObject.arrayLookupPID[arPIDPageArray[5]].unittext;
-
-                            iCommandSequence = 1;
-                        break;
+                    //Save current time in order to calculate the cycle time.
+                    iStartTime = new Date().getTime();
                 }
+
+                var idx = 0;
+                if (iCommandSequence % 2 == 0) {
+                    idx = (iCommandSequence) / 2;
+                    if (arPIDPageArray.length > idx && fncStartCommand(arPIDPageArray[idx] + "1")) {
+                        iCommandSequence++;
+                    } else
+                    {
+                        switch (idx) {
+                        case 0:
+                            sCoverValue1 = "";
+                            break;
+                        case 1:
+                            sCoverValue2 = "";
+                            break;
+                        case 2:
+                            sCoverValue3 = "";
+                            break;
+                        }
+                        parameters.set(idx, {"label": qsTr("Empty"), "value": ""});
+                        iCommandSequence += 2;
+                    }
+
+                } else {
+                    idx = (iCommandSequence - 1) / 2
+                    var label = OBDDataObject.arrayLookupPID[arPIDPageArray[idx]].labeltext;
+                    var value = OBDDataObject.fncEvaluatePIDQuery(sReceiveBuffer, arPIDPageArray[idx].toUpperCase()) +
+                        OBDDataObject.arrayLookupPID[arPIDPageArray[idx]].unittext
+                    parameters.set(idx, {"label": label, "value": value});
+
+                    switch (idx) {
+                    case 0:
+                        sCoverValue1 = value;
+                        break;
+                    case 1:
+                        sCoverValue2 = value;
+                        break;
+                    case 2:
+                        sCoverValue3 = value;
+                        break;
+                    }
+
+                    if (idx == 0)
+                    {
+                        id_PlotWidget.addValue(value);
+                        id_PlotWidget.update();
+                    }
+
+                    iCommandSequence++;
+                }
+
+                if (iCommandSequence >= arPIDPageArray.length * 2)
+                    iCommandSequence = 0
             }
             else
             {
@@ -253,70 +220,37 @@ Page
                 color: Theme.highlightColor
                 width: parent.width
             }
-            Label
-            {
-                visible: (arPIDPageArray.length > 0)
-                text: sParameter1;
+
+            Repeater{
+                model: parameters
+
+                Component {
+                    id: smallDisplay
+                    DetailItem {
+                        label: model.label
+                        value: model.value
+                    }
+                }
+
+
+                Component {
+                    id: bigDisplay
+                    Label {
+                        text: model.value
+                        font.pixelSize: Theme.fontSizeHuge * 2
+                        truncationMode: TruncationMode.Elide
+                        horizontalAlignment: Label.AlignHCenter
+                        width: id_page_dyn.width
+                    }
+                }
+
+                delegate: pagesDisplayStyle[pageIndex] === "small" ? smallDisplay : bigDisplay
             }
-            Separator
-            {
-                visible: (arPIDPageArray.length > 0)
-                color: Theme.highlightColor
-                width: parent.width
-            }
-            Label
-            {
-                visible: (arPIDPageArray.length > 1)
-                text: sParameter2;
-            }
-            Separator
-            {
-                visible: (arPIDPageArray.length > 1)
-                color: Theme.highlightColor
-                width: parent.width
-            }
-            Label
-            {
-                visible: (arPIDPageArray.length > 2)
-                text: sParameter3;
-            }
-            Separator
-            {
-                visible: (arPIDPageArray.length > 2)
-                color: Theme.highlightColor
-                width: parent.width
-            }
-            Label
-            {
-                visible: (arPIDPageArray.length > 3)
-                text: sParameter4;
-            }
-            Separator
-            {
-                visible: (arPIDPageArray.length > 3)
-                color: Theme.highlightColor
-                width: parent.width
-            }
-            Label
-            {
-                visible: (arPIDPageArray.length > 4)
-                text: sParameter5;
-            }
-            Separator
-            {
-                visible: (arPIDPageArray.length > 4)
-                color: Theme.highlightColor
-                width: parent.width
-            }
-            Label
-            {
-                visible: (arPIDPageArray.length > 5)
-                text: sParameter6;
-            }
+
             PlotWidget
             {
                 id: id_PlotWidget
-                visible: (arPIDPageArray.length == 1)
+                visible: (arPIDPageArray.length == 1) && pagesDisplayStyle[pageIndex] === "small"
                 width: parent.width
                 height: 150
                 plotColor: Theme.highlightColor

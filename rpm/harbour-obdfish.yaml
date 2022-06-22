@@ -33,11 +33,12 @@ PkgConfigBR:
 # Build dependencies without a pkgconfig setup can be listed here
 PkgBR:
 - kf5bluezqt-bluez5-devel
-- kf5bluezqt-bluez5-declarative
 
 # Runtime dependencies which are not automatically detected
 Requires:
-  - sailfishsilica-qt5 >= 0.10.9 
+  - sailfishsilica-qt5 >= 0.10.9
+  - libkeepalive
+  - kf5bluezqt-bluez5-declarative
 
 # All installed files
 Files:
