@@ -470,7 +470,7 @@ Page
                 width: parent.width
                 text: qsTr("Dynamic Values")
                 visible: ((currentDevice && currentDevice.connected) && !bConnecting && iInit === 0)
-                onClicked: {pageStack.push(Qt.resolvedUrl("Dyn1Page.qml"))}
+                onClicked: {pageStack.push(Qt.resolvedUrl("DynPage.qml"))}
             }
             Separator {color: Theme.highlightColor; width: parent.width; visible: ((currentDevice && currentDevice.connected) && !bConnecting && iInit === 0);}
             Button

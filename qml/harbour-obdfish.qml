@@ -40,7 +40,6 @@ ApplicationWindow
     property string sCoverValue3 : "";
 
     //Init C++ classes, libraries
-    PlotWidget{ id: id_PlotWidget }
     FileWriter{ id: id_FileWriter }
     ProjectSettings{ id: id_ProjectSettings }
     Notification { id: mainPageNotification }

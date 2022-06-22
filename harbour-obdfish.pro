@@ -54,6 +54,7 @@ HEADERS += \
 QT += dbus
 
 DISTFILES += \
+    qml/pages/DynPage.qml \
     rpm/harbour-obdfish.spec \
     qml/pages/SharedResources.js \
     qml/pages/OBDDataObject.js \
@@ -62,11 +63,8 @@ DISTFILES += \
     qml/tools/Messagebox.qml \
     qml/pages/AboutPage.qml \
     qml/obdfish.png \
-    qml/pages/Dyn1Page.qml \
-    qml/pages/Dyn2Page.qml \
     qml/pages/SettingsPage.qml \
     qml/pages/SettingsDataObject.js \
-    qml/pages/Dyn3Page.qml \
     qml/icon-lock-error.png \
     qml/icon-lock-info.png \
     qml/icon-lock-ok.png \

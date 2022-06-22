@@ -29,60 +29,22 @@
     </message>
 </context>
 <context>
-    <name>Dyn1Page</name>
+    <name>DynPage</name>
     <message>
-        <source>Dynamic Values 1</source>
-        <translation>Dynamische Werte 1</translation>
-    </message>
-    <message>
-        <source>Cycle time: </source>
-        <translation>Zykluszeit: </translation>
+        <source>Settings</source>
+        <translation type="unfinished">Einstellungen</translation>
     </message>
     <message>
         <source>The more parameters are requested, the higher the cycle time.&lt;br&gt;To get a more responsive cycle time, go to settings and reduce amount of parameters for this page.</source>
-        <translation>Je mehr Parameter auf einer Seite geladen werden, desto höher ist die Zykluszeit.&lt;br&gt;Um eine kürzere Zykluszeit zu erreichen, kann die Anhzahl der Parameter in den Einstellungen reduziert werden.</translation>
-    </message>
-    <message>
-        <source>Settings</source>
-        <translation>Einstellungen</translation>
-    </message>
-</context>
-<context>
-    <name>Dyn2Page</name>
-    <message>
-        <source>Dynamic Values 2</source>
-        <translation>Dynamische Werte 2</translation>
-    </message>
-    <message>
-        <source>The more parameters are requested, the higher the cycle time.&lt;br&gt;To get a more responsive cycle time, go to settings and reduce amount of parameters for this page.</source>
-        <translation>Je mehr Parameter auf einer Seite geladen werden, desto höher ist die Zykluszeit.&lt;br&gt;Um eine kürzere Zykluszeit zu erreichen, kann die Anhzahl der Parameter in den Einstellungen reduziert werden.</translation>
+        <translation type="unfinished">Je mehr Parameter auf einer Seite geladen werden, desto höher ist die Zykluszeit.&lt;br&gt;Um eine kürzere Zykluszeit zu erreichen, kann die Anhzahl der Parameter in den Einstellungen reduziert werden.</translation>
     </message>
     <message>
         <source>Cycle time: </source>
-        <translation>Zykluszeit: </translation>
+        <translation type="unfinished">Zykluszeit: </translation>
     </message>
     <message>
-        <source>Settings</source>
-        <translation>Einstellungen</translation>
-    </message>
-</context>
-<context>
-    <name>Dyn3Page</name>
-    <message>
-        <source>Dynamic Values 3</source>
-        <translation>Dynamische Werte 3</translation>
-    </message>
-    <message>
-        <source>The more parameters are requested, the higher the cycle time.&lt;br&gt;To get a more responsive cycle time, go to settings and reduce amount of parameters for this page.</source>
-        <translation>Je mehr Parameter auf einer Seite geladen werden, desto höher ist die Zykluszeit.&lt;br&gt;Um eine kürzere Zykluszeit zu erreichen, kann die Anhzahl der Parameter in den Einstellungen reduziert werden.</translation>
-    </message>
-    <message>
-        <source>Cycle time: </source>
-        <translation>Zykluszeit: </translation>
-    </message>
-    <message>
-        <source>Settings</source>
-        <translation>Einstellungen</translation>
+        <source>Dynamic Values %1</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

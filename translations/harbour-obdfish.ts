@@ -29,28 +29,9 @@
     </message>
 </context>
 <context>
-    <name>Dyn1Page</name>
-    <message>
-        <source>Dynamic Values 1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cycle time: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The more parameters are requested, the higher the cycle time.&lt;br&gt;To get a more responsive cycle time, go to settings and reduce amount of parameters for this page.</source>
-        <translation type="unfinished"></translation>
-    </message>
+    <name>DynPage</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Dyn2Page</name>
-    <message>
-        <source>Dynamic Values 2</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -62,26 +43,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>Dyn3Page</name>
-    <message>
-        <source>Dynamic Values 3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>The more parameters are requested, the higher the cycle time.&lt;br&gt;To get a more responsive cycle time, go to settings and reduce amount of parameters for this page.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cycle time: </source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Settings</source>
+        <source>Dynamic Values %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
