@@ -223,15 +223,47 @@ Page
                 else if (iInit == 9)
                 {
                     iInit = 10;
-                    //Evaluate answer from ELM
                     OBDDataObject.fncSetSupportedPIDs(sReceiveBuffer, "0140");
 
-                    progressBarInit.label = qsTr("Supported PID's 0900-0920...");
-                    fncStartCommand("0900");
+                    progressBarInit.label = qsTr("Supported PID's 0161-0180...");
+                    fncStartCommand("0160");
                 }
                 else if (iInit == 10)
                 {
                     iInit = 11;
+                    OBDDataObject.fncSetSupportedPIDs(sReceiveBuffer, "0160");
+
+                    progressBarInit.label = qsTr("Supported PID's 0181-01A0...");
+                    fncStartCommand("0180");
+                }
+                else if (iInit == 11)
+                {
+                    iInit = 12;
+                    OBDDataObject.fncSetSupportedPIDs(sReceiveBuffer, "0180");
+
+                    progressBarInit.label = qsTr("Supported PID's 01A1-01C0...");
+                    fncStartCommand("01A0");
+                }
+                else if (iInit == 12)
+                {
+                    iInit = 13;
+                    OBDDataObject.fncSetSupportedPIDs(sReceiveBuffer, "01A0");
+
+                    progressBarInit.label = qsTr("Supported PID's 01C1-01E0...");
+                    fncStartCommand("01C0");
+                }
+                else if (iInit == 13)
+                {
+                    iInit = 14;
+                    //Evaluate answer from ELM
+                    OBDDataObject.fncSetSupportedPIDs(sReceiveBuffer, "01C0");
+
+                    progressBarInit.label = qsTr("Supported PID's 0900-0920...");
+                    fncStartCommand("0900");
+                }
+                else if (iInit == 14)
+                {
+                    iInit = 15;
                     //Evaluate answer from ELM
                     OBDDataObject.fncSetSupportedPIDs(sReceiveBuffer, "0900");
 
@@ -523,7 +555,7 @@ Page
             {
                 id: progressBarInit
                 width: parent.width
-                maximumValue: 11
+                maximumValue: 15
                 valueText: value + "/" + maximumValue
                 label: ""
                 visible: (iInit > 0)

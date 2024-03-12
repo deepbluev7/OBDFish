@@ -287,6 +287,22 @@
         <source>No supported PID&apos;s found!&lt;br&gt;- turn on ignition/engine&lt;br&gt;- reconnect to OBD adapter</source>
         <translation>Keine unterstützten PID&apos;s gefunden!&lt;br&gt;- Zündung/Motor einschalten&lt;br&gt;- OBD Adapter neu verbinden</translation>
     </message>
+    <message>
+        <source>Supported PID&apos;s 0161-0180...</source>
+        <translation type="unfinished">Unterstützte PID&apos;s 0900-0920... {0161-0180.?}</translation>
+    </message>
+    <message>
+        <source>Supported PID&apos;s 0181-01A0...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Supported PID&apos;s 01A1-01C0...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Supported PID&apos;s 01C1-01E0...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>OBDDataObject</name>
@@ -301,10 +317,6 @@
     <message>
         <source>Engine Load</source>
         <translation>Motorlast</translation>
-    </message>
-    <message>
-        <source>Engine Temp</source>
-        <translation>Motortemperatur</translation>
     </message>
     <message>
         <source>Intake Air Pressure</source>
@@ -509,6 +521,10 @@
     <message>
         <source>&lt;br&gt;Closed loop, using at least one oxygen sensor but there is a fault in the feedback system</source>
         <translation>&lt;br&gt;Geschlossene Schleife, mindestens ein Sauerstoffsensor wird verwendet, aber es gibt einen Fehler im Rückkopplungssystem.</translation>
+    </message>
+    <message>
+        <source>Engine Coolant Temp</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

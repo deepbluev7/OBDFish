@@ -287,6 +287,22 @@
         <source>No supported PID&apos;s found!&lt;br&gt;- turn on ignition/engine&lt;br&gt;- reconnect to OBD adapter</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Supported PID&apos;s 0161-0180...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Supported PID&apos;s 0181-01A0...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Supported PID&apos;s 01A1-01C0...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Supported PID&apos;s 01C1-01E0...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>OBDDataObject</name>
@@ -300,10 +316,6 @@
     </message>
     <message>
         <source>Engine Load</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Engine Temp</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -508,6 +520,10 @@
     </message>
     <message>
         <source>&lt;br&gt;Closed loop, using at least one oxygen sensor but there is a fault in the feedback system</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Engine Coolant Temp</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
