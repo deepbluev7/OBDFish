@@ -6,31 +6,48 @@
 Name:       harbour-obdfish
 
 # >> macros
+%define _binary_payload w2.xzdio
 # << macros
 
 %{!?qtc_qmake:%define qtc_qmake %qmake}
 %{!?qtc_qmake5:%define qtc_qmake5 %qmake5}
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
+
 Summary:    harbour-obdfish
 Version:    0.94
-Release:    1
+Release:    5
 Group:      Qt/Qt
 License:    GPLv3
 URL:        http://example.org/
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-obdfish.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
+Requires:   libkeepalive
+Requires:   kf5bluezqt-bluez5-declarative
 BuildRequires:  pkgconfig(sailfishapp) >= 1.0.2
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5Qml)
 BuildRequires:  pkgconfig(Qt5Quick)
 BuildRequires:  kf5bluezqt-bluez5-devel
-BuildRequires:  kf5bluezqt-bluez5-declarative
 BuildRequires:  desktop-file-utils
 
 %description
-Short description of my SailfishOS Application
+This is an application for Sailfish OS, which connects to an OBD ELM327 bluetooth car diagnostic reader.
+%if "%{?vendor}" == "chum"
+PackageName: harbour-obdfish
+Type: desktop-application
+Categories:
+ - Utility
+PackagerName: Mark Washeim (poetaster)
+Custom:
+ - Repo: https://github.com/poetaster/OBDFish
+Icon: https://github.com/poetaster/OBDFish/blob/master/icons/256x256/harbour-obdfish.png?raw=true
+Url:
+  Homepage: https://github.com/poetaster/OBDFish
+  Bugtracker: https://github.com/poetaster/OBDFish/issues
+%endif
+
 
 
 %prep
