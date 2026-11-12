@@ -19,7 +19,7 @@ Version:    0.94
 Release:    5
 Group:      Qt/Qt
 License:    GPLv3
-URL:        http://example.org/
+URL:        https://github.com/poetaster/OBDFish
 Source0:    %{name}-%{version}.tar.bz2
 Source100:  harbour-obdfish.yaml
 Requires:   sailfishsilica-qt5 >= 0.10.9
